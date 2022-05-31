@@ -25,6 +25,10 @@ class MainActivity : AppCompatActivity() {
                 val fragment = AddMenuFragment()
                 supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, fragment).setReorderingAllowed(true).commit()
             }
+            else if (it.itemId == R.id.update_bottom_nav_menu) {
+                val fragment = UpdateMenuFragment()
+                supportFragmentManager.beginTransaction().replace(R.id.fragmentContainerView, fragment).setReorderingAllowed(true).commit()
+            }
             return@setOnItemSelectedListener true
         }
     }

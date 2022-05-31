@@ -36,11 +36,11 @@ class AddMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         idAddEt = view.findViewById(R.id.id_add_et)
-        namaMenuAddEt = view.findViewById(R.id.nama_add_et)
-        deskripsiMenuAddEt = view.findViewById(R.id.deskripsi_add_et)
-        hargaMenuAddEt = view.findViewById(R.id.harga_add_et)
-        tambahBtn = view.findViewById(R.id.tambah_btn)
-        showHasil = view.findViewById(R.id.showHasil_lv)
+        namaMenuAddEt = view.findViewById(R.id.nama_update_et)
+        deskripsiMenuAddEt = view.findViewById(R.id.deskripsi_update_et)
+        hargaMenuAddEt = view.findViewById(R.id.harga_update_et)
+        tambahBtn = view.findViewById(R.id.update_btn)
+        showHasil = view.findViewById(R.id.showHasilUpdate_lv)
         val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuAdd)
         showHasil.adapter = menuAdapter
 

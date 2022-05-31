@@ -21,18 +21,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
-            android:text="Add Menu"
+            android:text="Edit Menu"
             android:textSize="48sp" />
 
-        <EditText
-            android:id="@+id/id_add_et"
+        <Spinner
+            android:id="@+id/idMenu_spin"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:ems="10"
-            android:hint="ID Menu"
-            android:inputType="textPersonName"
             android:paddingBottom="10dp" />
 
         <EditText
@@ -70,7 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="Tambah Menu" />
+            android:text="Update Menu" />
 
     </LinearLayout>
 
