@@ -21,6 +21,7 @@ class ListMenuAdapter (
             val vi = (context as Activity).layoutInflater
             v = vi.inflate(layout, parent, false) as View
             holder = MenuPadangHolder(
+                v.findViewById(R.id.menu_image_iv),
                 v.findViewById(R.id.nama_tv),
                 v.findViewById(R.id.deskripsi_tv),
                 v.findViewById(R.id.harga_tv)
@@ -32,6 +33,7 @@ class ListMenuAdapter (
         }
 
         val menu = listMenuPadang[position]
+        holder.menuIv.setImageResource(android.R.drawable.star_big_on)
         holder.namaTv.text = menu.nama
         holder.deskripsiTv.text = menu.deskripsi
         holder.hargaTv.text = menu.harga.toString()
@@ -41,6 +43,7 @@ class ListMenuAdapter (
 }
 
 data class MenuPadangHolder(
+    val menuIv: ImageView,
     val namaTv: TextView,
     val deskripsiTv: TextView,
     val hargaTv: TextView
