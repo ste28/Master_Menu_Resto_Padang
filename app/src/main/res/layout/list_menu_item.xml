@@ -10,6 +10,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:maxWidth="5dp"
+        android:maxHeight="5dp"
+        android:minWidth="5dp"
+        android:minHeight="5dp"
         app:srcCompat="@drawable/nasi_padang"
         tools:srcCompat="@tools:sample/avatars" />
 

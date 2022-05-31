@@ -33,7 +33,7 @@ class ListMenuAdapter (
         }
 
         val menu = listMenuPadang[position]
-        holder.menuIv.setImageResource(android.R.drawable.star_big_on)
+        holder.menuIv.setImageResource(R.drawable.nasi_padang)
         holder.namaTv.text = menu.nama
         holder.deskripsiTv.text = menu.deskripsi
         holder.hargaTv.text = menu.harga.toString()
