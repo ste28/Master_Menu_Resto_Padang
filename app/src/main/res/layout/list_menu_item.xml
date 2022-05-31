@@ -3,17 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp">
 
     <ImageView
         android:id="@+id/menu_image_iv"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:maxWidth="5dp"
-        android:maxHeight="5dp"
-        android:minWidth="5dp"
-        android:minHeight="5dp"
+        android:paddingRight="10dp"
         app:srcCompat="@drawable/nasi_padang"
         tools:srcCompat="@tools:sample/avatars" />
 
