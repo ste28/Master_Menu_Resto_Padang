@@ -75,7 +75,7 @@ class DeleteMenuFragment : Fragment() {
 
         idDeleteSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                updateEt(position)
+                deleteEt(position)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -88,7 +88,7 @@ class DeleteMenuFragment : Fragment() {
         }
     }
 
-    fun updateEt(i:Int) {
+    fun deleteEt(i:Int) {
         if (i >= 0) {
             idx = i
             namaMenuDeleteEt.setText(menuDelete[i].nama)
