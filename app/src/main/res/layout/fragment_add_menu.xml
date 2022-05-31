@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginTop="15dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginBottom="15dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/add_menu_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="Add Menu"
+            android:textSize="48sp" />
+
+        <EditText
+            android:id="@+id/nama_add_et"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Nama Menu"
+            android:inputType="textPersonName"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/deskripsi_add_et"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Deskripsi"
+            android:inputType="textPersonName"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/harga_add_et"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="Harga"
+            android:inputType="number"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/tambah_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Tambah Menu" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/showHasil_lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>
