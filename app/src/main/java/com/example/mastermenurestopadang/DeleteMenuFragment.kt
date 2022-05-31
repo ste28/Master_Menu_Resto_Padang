@@ -13,17 +13,17 @@ import com.android.volley.toolbox.Volley
 import org.json.JSONArray
 import org.json.JSONObject
 
-class UpdateMenuFragment : Fragment() {
-    lateinit var idSpinner: Spinner
-    lateinit var namaMenuUpdateEt: EditText
-    lateinit var deskripsiMenuUpdateEt: EditText
-    lateinit var hargaMenuUpdateEt: EditText
-    lateinit var updateBtn: Button
-    lateinit var showHasilUpdate: ListView
+class DeleteMenuFragment : Fragment() {
+    lateinit var idDeleteSpinner: Spinner
+    lateinit var namaMenuDeleteEt: EditText
+    lateinit var deskripsiMenuDeleteEt: EditText
+    lateinit var hargaMenuDeleteEt: EditText
+    lateinit var deleteBtn: Button
+    lateinit var showHasilDelete: ListView
     lateinit var idSpinnerAdapter: ArrayAdapter<String>
     var idx = -1
-    val menuUpdate: ArrayList<MenuPadang> = ArrayList()
-    val menuDiupdate: ArrayList<MenuPadang> = ArrayList()
+    val menuDelete: ArrayList<MenuPadang> = ArrayList()
+    val menuDiDelete: ArrayList<MenuPadang> = ArrayList()
     val menuId: ArrayList<String> = ArrayList()
 
     override fun onCreateView(
@@ -32,21 +32,21 @@ class UpdateMenuFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 //        return super.onCreateView(inflater, container, savedInstanceState)
-        return inflater.inflate(R.layout.fragment_update_menu, container, false)
+        return inflater.inflate(R.layout.fragment_delete_menu, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        idSpinner = view.findViewById(R.id.idMenuDelete_spin)
-        namaMenuUpdateEt = view.findViewById(R.id.nama_delete_et)
-        deskripsiMenuUpdateEt = view.findViewById(R.id.deskripsi_delete_et)
-        hargaMenuUpdateEt = view.findViewById(R.id.harga_delete_et)
-        updateBtn = view.findViewById(R.id.delete_btn)
-        showHasilUpdate = view.findViewById(R.id.showHasilDelete_lv)
-        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuDiupdate)
-        showHasilUpdate.adapter = menuAdapter
+        idDeleteSpinner = view.findViewById(R.id.idMenuDelete_spin)
+        namaMenuDeleteEt = view.findViewById(R.id.nama_delete_et)
+        deskripsiMenuDeleteEt = view.findViewById(R.id.deskripsi_delete_et)
+        hargaMenuDeleteEt = view.findViewById(R.id.harga_delete_et)
+        deleteBtn = view.findViewById(R.id.delete_btn)
+        showHasilDelete = view.findViewById(R.id.showHasilDelete_lv)
+        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuDiDelete)
+        showHasilDelete.adapter = menuAdapter
         idSpinnerAdapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, menuId)
-        idSpinner.adapter = idSpinnerAdapter
+        idDeleteSpinner.adapter = idSpinnerAdapter
 
         val strReq = object : StringRequest(
             Method.GET,
@@ -61,7 +61,7 @@ class UpdateMenuFragment : Fragment() {
                     val harga = m.getInt("harga")
                     val newMenu = MenuPadang(id, nama, deskripsi, harga)
                     menuId.add(id)
-                    menuUpdate.add(newMenu)
+                    menuDelete.add(newMenu)
                 }
                 idSpinnerAdapter.notifyDataSetChanged()
             },
@@ -73,7 +73,7 @@ class UpdateMenuFragment : Fragment() {
         val queue: RequestQueue = Volley.newRequestQueue(view.context)
         queue.add(strReq)
 
-        idSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        idDeleteSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 updateEt(position)
             }
@@ -83,26 +83,26 @@ class UpdateMenuFragment : Fragment() {
             }
         }
 
-        updateBtn.setOnClickListener {
-            updateMenu(view, menuAdapter, idx)
+        deleteBtn.setOnClickListener {
+            deleteMenu(view, menuAdapter, idx)
         }
     }
 
     fun updateEt(i:Int) {
         if (i >= 0) {
             idx = i
-            namaMenuUpdateEt.setText(menuUpdate[i].nama)
-            deskripsiMenuUpdateEt.setText(menuUpdate[i].deskripsi)
-            hargaMenuUpdateEt.setText(menuUpdate[i].harga.toString())
+            namaMenuDeleteEt.setText(menuDelete[i].nama)
+            deskripsiMenuDeleteEt.setText(menuDelete[i].deskripsi)
+            hargaMenuDeleteEt.setText(menuDelete[i].harga.toString())
         }
     }
 
-    fun updateMenu(view: View, menuAdapter: ListMenuAdapter, i:Int) {
+    fun deleteMenu(view: View, menuAdapter: ListMenuAdapter, i:Int) {
         if (i >= 0) {
             val index = i + 1
             val id = "F00$index"
             val strReq = object : StringRequest(
-                Method.PUT,
+                Method.DELETE,
                 "http://192.168.0.5:3000/api/menu/$id",
                 Response.Listener {
                     val m = JSONObject(it)
@@ -111,24 +111,18 @@ class UpdateMenuFragment : Fragment() {
                     val deskripsi = m.getString("deskripsi")
                     val harga = m.getInt("harga")
                     val men = MenuPadang(id, nama, deskripsi, harga)
-                    menuDiupdate.add(men)
+                    menuDiDelete.add(men)
                     menuAdapter.notifyDataSetChanged()
                 },
                 Response.ErrorListener {
                     it.printStackTrace()
                     Toast.makeText(view.context, "error", Toast.LENGTH_SHORT).show()
                 }
-            ){
-                override fun getParams(): MutableMap<String, String>? {
-                    val param:MutableMap<String, String> = HashMap()
-                    param["nama"] = namaMenuUpdateEt.text.toString()
-                    param["deskripsi"] = deskripsiMenuUpdateEt.text.toString()
-                    param["harga"] = hargaMenuUpdateEt.text.toString()
-                    return param
-                }
-            }
+            ){}
             val queue: RequestQueue = Volley.newRequestQueue(view.context)
             queue.add(strReq)
+            menuId.removeAt(i)
+            idSpinnerAdapter.notifyDataSetChanged()
         }
     }
 }

@@ -17,7 +17,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/update_menu_tv"
+            android:id="@+id/delete_menu_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left"
@@ -25,7 +25,7 @@
             android:textSize="48sp" />
 
         <Spinner
-            android:id="@+id/idMenu_spin"
+            android:id="@+id/idMenuDelete_spin"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginTop="10dp"
@@ -33,7 +33,7 @@
             android:paddingBottom="10dp" />
 
         <EditText
-            android:id="@+id/nama_update_et"
+            android:id="@+id/nama_delete_et"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginBottom="10dp"
@@ -43,7 +43,7 @@
             android:paddingBottom="10dp" />
 
         <EditText
-            android:id="@+id/deskripsi_update_et"
+            android:id="@+id/deskripsi_delete_et"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginBottom="10dp"
@@ -53,7 +53,7 @@
             android:paddingBottom="10dp" />
 
         <EditText
-            android:id="@+id/harga_update_et"
+            android:id="@+id/harga_delete_et"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginBottom="10dp"
@@ -63,7 +63,7 @@
             android:paddingBottom="10dp" />
 
         <Button
-            android:id="@+id/update_btn"
+            android:id="@+id/delete_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
@@ -72,7 +72,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/showHasilUpdate_lv"
+        android:id="@+id/showHasilDelete_lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
