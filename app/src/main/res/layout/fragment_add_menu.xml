@@ -25,10 +25,20 @@
             android:textSize="48sp" />
 
         <EditText
-            android:id="@+id/nama_add_et"
+            android:id="@+id/id_add_et"
             android:layout_width="match_parent"
             android:layout_height="63dp"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:ems="10"
+            android:hint="ID Menu"
+            android:inputType="textPersonName"
+            android:paddingBottom="10dp" />
+
+        <EditText
+            android:id="@+id/nama_add_et"
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
             android:layout_marginBottom="10dp"
             android:ems="10"
             android:hint="Nama Menu"
