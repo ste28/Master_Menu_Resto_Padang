@@ -42,27 +42,22 @@ class ListMenuFragment : Fragment() {
 
         cariButton.setOnClickListener {
             val menuDicari = namaMenuEt.text.toString()
-            var idx = 0
-            var id:String = ""
             if (menuDicari != "") {
-                for (i in 0 until menu.count()) {
-                    if (menu[i].nama == menuDicari) {
-                        idx = i + 1
-                    }
-                }
-                id = "F00$idx"
                 val strReq = object : StringRequest(
                     Method.GET,
-                    "http://192.168.0.5:3000/api/menu/$id",
+                    "http://192.168.0.5:3000/api/menuNama/$menuDicari",
                     Response.Listener {
+                        val response = JSONArray(it)
                         menu.clear()
-                        val m = JSONObject(it)
-                        val id = m.getString("id")
-                        val nama = m.getString("nama")
-                        val deskripsi = m.getString("deskripsi")
-                        val harga = m.getInt("harga")
-                        val newMenu = MenuPadang(id, nama, deskripsi, harga)
-                        menu.add(newMenu)
+                        for (i in 0 until response.length()) {
+                            val m: JSONObject = response.getJSONObject(i)
+                            val id = m.getString("id")
+                            val nama = m.getString("nama")
+                            val deskripsi = m.getString("deskripsi")
+                            val harga = m.getInt("harga")
+                            val newMenu = MenuPadang(id, nama, deskripsi, harga)
+                            menu.add(newMenu)
+                        }
                         menuAdapter.notifyDataSetChanged()
                     },
                     Response.ErrorListener {
