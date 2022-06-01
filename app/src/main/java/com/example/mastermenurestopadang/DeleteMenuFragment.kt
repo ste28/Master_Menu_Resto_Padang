@@ -21,7 +21,8 @@ class DeleteMenuFragment : Fragment() {
     lateinit var deleteBtn: Button
     lateinit var showHasilDelete: ListView
     lateinit var idSpinnerAdapter: ArrayAdapter<String>
-    var idx = -1
+    var idx = ""
+    var index = 0
     val menuDelete: ArrayList<MenuPadang> = ArrayList()
     val menuDiDelete: ArrayList<MenuPadang> = ArrayList()
     val menuId: ArrayList<String> = ArrayList()
@@ -84,45 +85,55 @@ class DeleteMenuFragment : Fragment() {
         }
 
         deleteBtn.setOnClickListener {
-            deleteMenu(view, menuAdapter, idx)
+            deleteMenu(view, menuAdapter, index, idx)
         }
     }
 
     fun deleteEt(i:Int) {
         if (i >= 0) {
-            idx = i
+            idx = menuDelete[i].id
+            index = i
             namaMenuDeleteEt.setText(menuDelete[i].nama)
             deskripsiMenuDeleteEt.setText(menuDelete[i].deskripsi)
             hargaMenuDeleteEt.setText(menuDelete[i].harga.toString())
         }
     }
 
-    fun deleteMenu(view: View, menuAdapter: ListMenuAdapter, i:Int) {
+    fun deleteMenu(view: View, menuAdapter: ListMenuAdapter, i:Int, id:String) {
+        val strReq = object : StringRequest(
+            Method.DELETE,
+            "http://192.168.0.5:3000/api/menu/$id",
+            Response.Listener {
+                val m = JSONObject(it)
+                val id = m.getString("id")
+                val nama = m.getString("nama")
+                val deskripsi = m.getString("deskripsi")
+                val harga = m.getInt("harga")
+                val men = MenuPadang(id, nama, deskripsi, harga)
+                menuDiDelete.add(men)
+                menuAdapter.notifyDataSetChanged()
+            },
+            Response.ErrorListener {
+                it.printStackTrace()
+                Toast.makeText(view.context, "error", Toast.LENGTH_SHORT).show()
+            }
+        ){}
+        val queue: RequestQueue = Volley.newRequestQueue(view.context)
+        queue.add(strReq)
+        menuId.removeAt(i)
+        idSpinnerAdapter.notifyDataSetChanged()
         if (i >= 0) {
-            val index = i + 1
-            val id = "F00$index"
-            val strReq = object : StringRequest(
-                Method.DELETE,
-                "http://192.168.0.5:3000/api/menu/$id",
-                Response.Listener {
-                    val m = JSONObject(it)
-                    val id = m.getString("id")
-                    val nama = m.getString("nama")
-                    val deskripsi = m.getString("deskripsi")
-                    val harga = m.getInt("harga")
-                    val men = MenuPadang(id, nama, deskripsi, harga)
-                    menuDiDelete.add(men)
-                    menuAdapter.notifyDataSetChanged()
-                },
-                Response.ErrorListener {
-                    it.printStackTrace()
-                    Toast.makeText(view.context, "error", Toast.LENGTH_SHORT).show()
-                }
-            ){}
-            val queue: RequestQueue = Volley.newRequestQueue(view.context)
-            queue.add(strReq)
-            menuId.removeAt(i)
-            idSpinnerAdapter.notifyDataSetChanged()
+            if (i <= menuId.lastIndex) {
+                deleteEt((i+1))
+            } else {
+                namaMenuDeleteEt.setText("")
+                deskripsiMenuDeleteEt.setText("")
+                hargaMenuDeleteEt.setText("")
+            }
+        } else {
+            namaMenuDeleteEt.setText("")
+            deskripsiMenuDeleteEt.setText("")
+            hargaMenuDeleteEt.setText("")
         }
     }
 }
