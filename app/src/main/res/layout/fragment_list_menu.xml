@@ -58,8 +58,8 @@
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/menu_lv"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/menu_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

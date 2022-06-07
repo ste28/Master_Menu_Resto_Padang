@@ -18,8 +18,9 @@ import org.json.JSONObject
 class ListMenuFragment : Fragment() {
     lateinit var namaMenuEt: EditText
     lateinit var cariButton: ImageButton
-    lateinit var menuLv: ListView
+    lateinit var menuRv: RecyclerView
     val menu:ArrayList<MenuPadang> = ArrayList()
+    var idx = -1
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,9 +35,10 @@ class ListMenuFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         namaMenuEt = view.findViewById(R.id.nama_menu_et)
         cariButton = view.findViewById(R.id.cari_btn)
-        menuLv = view.findViewById(R.id.menu_lv)
-        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menu)
-        menuLv.adapter = menuAdapter
+        menuRv = view.findViewById(R.id.menu_rv)
+        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, menu)
+        menuRv.adapter = menuAdapter
+        menuRv.layoutManager = LinearLayoutManager(view.context)
 
         showList(view, menuAdapter)
 
