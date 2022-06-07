@@ -14,7 +14,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
+        
         loginFragment = supportFragmentManager.findFragmentById(R.id.login_frag) as LoginFragment
         loginFragment.onLoginListener = {username, password ->
             if (username == "admin" && password == "admin") {
