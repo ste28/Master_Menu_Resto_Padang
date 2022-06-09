@@ -6,9 +6,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/the_la_uda_padang"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/the_la_uda_padang"
         android:supportsRtl="true"
         android:theme="@style/Theme.MasterMenuRestoPadang"
         android:usesCleartextTraffic="true">
