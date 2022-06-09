@@ -10,13 +10,13 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 
 class LoginActivity : AppCompatActivity() {
+    val users:ArrayList<User> = ArrayList()
     lateinit var loginFragment: LoginFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        var users:ArrayList<User> = ArrayList()
         val intent = getIntent()
         val user = intent.getParcelableExtra<User>("newUser")
         if (user != null) {
@@ -60,6 +60,7 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         } else if (item.itemId == R.id.register_menu) {
             val intent = Intent(this, RegisterActivity::class.java)
+            intent.putExtra("listUser", users)
             startActivity(intent)
         }
         return true

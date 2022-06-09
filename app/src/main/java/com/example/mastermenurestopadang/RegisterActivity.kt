@@ -9,16 +9,18 @@ import android.view.MenuItem
 import android.widget.Toast
 
 class RegisterActivity : AppCompatActivity() {
-    val users:ArrayList<User> = ArrayList()
+//    val users:ArrayList<User> = ArrayList()
     lateinit var registerFragment: RegisterFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        val users: ArrayList<User>? = intent.getStringArrayListExtra("listUser")
+
         registerFragment = supportFragmentManager.findFragmentById(R.id.regist_frag) as RegisterFragment
         registerFragment.onRegisterListener = {username, nama, alamat, password ->
-            var u = users.find {
+            var u = users?.find {
                 return@find it.username == username
             }
 
@@ -27,7 +29,7 @@ class RegisterActivity : AppCompatActivity() {
             }
             else {
                 val u = User(username, nama, alamat, password)
-                users.add(u)
+                users?.add(u)
                 val intent = Intent(this, LoginActivity::class.java)
                 intent.putExtra("newUser", users)
                 startActivity(intent)
