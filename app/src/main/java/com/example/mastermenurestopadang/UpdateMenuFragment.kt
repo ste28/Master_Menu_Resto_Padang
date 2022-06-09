@@ -43,7 +43,7 @@ class UpdateMenuFragment : Fragment() {
         hargaMenuUpdateEt = view.findViewById(R.id.harga_delete_et)
         updateBtn = view.findViewById(R.id.delete_btn)
         showHasilUpdate = view.findViewById(R.id.showHasilDelete_lv)
-        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuDiupdate)
+        val menuAdapter:ListViewMenuAdapter = ListViewMenuAdapter(view.context, R.layout.list_menu_item, menuDiupdate)
         showHasilUpdate.adapter = menuAdapter
         idSpinnerAdapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, menuId)
         idSpinner.adapter = idSpinnerAdapter
@@ -97,7 +97,7 @@ class UpdateMenuFragment : Fragment() {
         }
     }
 
-    fun updateMenu(view: View, menuAdapter: ListMenuAdapter, i:Int) {
+    fun updateMenu(view: View, menuAdapter: ListViewMenuAdapter, i:Int) {
         if (i >= 0) {
             val index = i + 1
             val id = "F00$index"

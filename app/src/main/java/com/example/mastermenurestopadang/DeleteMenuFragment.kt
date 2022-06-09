@@ -44,7 +44,7 @@ class DeleteMenuFragment : Fragment() {
         hargaMenuDeleteEt = view.findViewById(R.id.harga_delete_et)
         deleteBtn = view.findViewById(R.id.delete_btn)
         showHasilDelete = view.findViewById(R.id.showHasilDelete_lv)
-        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuDiDelete)
+        val menuAdapter:ListViewMenuAdapter = ListViewMenuAdapter(view.context, R.layout.list_menu_item, menuDiDelete)
         showHasilDelete.adapter = menuAdapter
         idSpinnerAdapter = ArrayAdapter(view.context, android.R.layout.simple_spinner_item, menuId)
         idDeleteSpinner.adapter = idSpinnerAdapter
@@ -99,7 +99,7 @@ class DeleteMenuFragment : Fragment() {
         }
     }
 
-    fun deleteMenu(view: View, menuAdapter: ListMenuAdapter, i:Int, id:String) {
+    fun deleteMenu(view: View, menuAdapter: ListViewMenuAdapter, i:Int, id:String) {
         val strReq = object : StringRequest(
             Method.DELETE,
             "http://192.168.0.5:3000/api/menu/$id",

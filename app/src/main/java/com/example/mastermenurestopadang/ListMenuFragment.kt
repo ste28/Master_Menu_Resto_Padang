@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.RequestQueue
@@ -39,6 +40,7 @@ class ListMenuFragment : Fragment() {
         val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, menu)
         menuRv.adapter = menuAdapter
         menuRv.layoutManager = LinearLayoutManager(view.context)
+//        menuRv.layoutManager = GridLayoutManager(view.context, 2)
 
         showList(view, menuAdapter)
 

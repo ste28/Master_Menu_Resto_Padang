@@ -41,7 +41,7 @@ class AddMenuFragment : Fragment() {
         hargaMenuAddEt = view.findViewById(R.id.harga_delete_et)
         tambahBtn = view.findViewById(R.id.delete_btn)
         showHasil = view.findViewById(R.id.showHasilDelete_lv)
-        val menuAdapter:ListMenuAdapter = ListMenuAdapter(view.context, R.layout.list_menu_item, menuAdd)
+        val menuAdapter:ListViewMenuAdapter = ListViewMenuAdapter(view.context, R.layout.list_menu_item, menuAdd)
         showHasil.adapter = menuAdapter
 
         tambahBtn.setOnClickListener {
