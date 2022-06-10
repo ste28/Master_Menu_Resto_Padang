@@ -9,18 +9,23 @@ import android.view.MenuItem
 import android.widget.Toast
 
 class RegisterActivity : AppCompatActivity() {
-//    val users:ArrayList<User> = ArrayList()
+    var users:ArrayList<User> = ArrayList()
     lateinit var registerFragment: RegisterFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        val users: ArrayList<User>? = intent.getStringArrayListExtra("listUser")
+        if (intent.extras != null){
+            val bundle = intent.extras
+            if (bundle != null) {
+                users = bundle.getParcelableArrayList<User>("listUser") as ArrayList<User>
+            }
+        }
 
         registerFragment = supportFragmentManager.findFragmentById(R.id.regist_frag) as RegisterFragment
         registerFragment.onRegisterListener = {username, nama, alamat, password ->
-            var u = users?.find {
+            var u = users.find {
                 return@find it.username == username
             }
 
@@ -29,9 +34,11 @@ class RegisterActivity : AppCompatActivity() {
             }
             else {
                 val u = User(username, nama, alamat, password)
-                users?.add(u)
+                users.add(u)
+                val bundle = Bundle()
+                bundle.putParcelableArrayList("listUser", users)
                 val intent = Intent(this, LoginActivity::class.java)
-                intent.putExtra("newUser", users)
+                intent.putExtras(bundle)
                 startActivity(intent)
             }
         }
@@ -44,10 +51,16 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.login_menu) {
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("listUser", users)
             val intent = Intent(this, LoginActivity::class.java)
+            intent.putExtras(bundle)
             startActivity(intent)
         } else if (item.itemId == R.id.register_menu) {
+            val bundle = Bundle()
+            bundle.putParcelableArrayList("listUser", users)
             val intent = Intent(this, RegisterActivity::class.java)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
         return true

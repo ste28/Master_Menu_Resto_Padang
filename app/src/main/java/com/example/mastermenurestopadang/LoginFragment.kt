@@ -25,8 +25,8 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        usernameEt = view.findViewById(R.id.usernameRegist_et)
-        passwordEt = view.findViewById(R.id.passwordRegist_et)
+        usernameEt = view.findViewById(R.id.usernameLogin_et)
+        passwordEt = view.findViewById(R.id.passwordLogin_et)
         loginBtn = view.findViewById(R.id.do_regist_btn)
 
         loginBtn.setOnClickListener {
