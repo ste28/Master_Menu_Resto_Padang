@@ -36,7 +36,7 @@ class ListUserAdapter (
         val user = ListUser[position]
         holder.userIv.setImageResource(R.drawable.image_removebg_preview__18_)
         holder.usernameTv.text = user.username
-        holder.namaTv.text = "Alamat: " + user.nama
+        holder.namaTv.text = "Nama: " + user.nama
         holder.alamatTv.text = "Alamat: " + user.alamat
 
         return v
