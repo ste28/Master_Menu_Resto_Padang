@@ -39,18 +39,13 @@ class LoginActivity : AppCompatActivity() {
                 }
 
                 if (u != null) {
-//                    val intent = Intent(this, MainActivity2::class.java)
-//                    intent.putExtra("user", u)
-//                    startActivity(intent)
-                    for (i in 0 until users.count()){
-                        Toast.makeText(this, users[i].username, Toast.LENGTH_SHORT).show()
-                    }
-                    Toast.makeText(this, "Login Sukses bro", Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle()
+                    bundle.putParcelable("user", u)
+                    val intent = Intent(this, UserActivity::class.java)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
                 }
                 else {
-                    for (i in 0 until users.count()){
-                        Toast.makeText(this, users[i].username, Toast.LENGTH_SHORT).show()
-                    }
                     Toast.makeText(this, "Login gagal!", Toast.LENGTH_SHORT).show()
                 }
             }

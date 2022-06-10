@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/list_menu_bottom_nav_menu"
+        android:icon="@android:drawable/ic_input_get"
+        android:title="List Menu" />
+    <item
+        android:id="@+id/profile_user_bottom_nav_menu"
+        android:icon="@drawable/image_removebg_preview__17_"
+        android:title="Profile" />
+</menu>
