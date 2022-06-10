@@ -18,4 +18,8 @@
         android:id="@+id/delete_bottom_nav_menu"
         android:icon="@android:drawable/ic_menu_delete"
         android:title="Delete Menu" />
+    <item
+        android:id="@+id/list_user_bottom_nav_menu"
+        android:icon="@drawable/image_removebg_preview__17_"
+        android:title="List User" />
 </menu>
