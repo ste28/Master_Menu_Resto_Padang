@@ -22,8 +22,6 @@ class MainActivity : AppCompatActivity() {
                 users = bundle.getParcelableArrayList<User>("listUser") as ArrayList<User>
             }
         }
-
-        Toast.makeText(this, "Welcome Admin!!", Toast.LENGTH_SHORT).show()
         
         val fragment = ListMenuFragment()
 

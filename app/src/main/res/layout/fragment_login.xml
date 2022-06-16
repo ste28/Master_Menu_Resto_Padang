@@ -10,20 +10,6 @@
     android:layout_marginRight="15dp"
     android:layout_marginBottom="15dp">
 
-    <TextView
-        android:id="@+id/title_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameLogin_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="spread" />
-
     <EditText
         android:id="@+id/usernameLogin_et"
         android:layout_width="match_parent"
@@ -32,11 +18,12 @@
         android:hint="username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/passwordLogin_et"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_register" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/passwordLogin_et"
@@ -46,21 +33,21 @@
         android:hint="password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/do_regist_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameLogin_et" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/do_regist_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#03A9F4"
         android:text="LOGIN"
+        android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordLogin_et" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,34 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginLeft="15dp"
-    android:layout_marginTop="15dp"
-    android:layout_marginRight="15dp"
-    android:layout_marginBottom="15dp"
+    android:background="#FFFFB7"
     tools:context=".RegisterActivity">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:id="@+id/title_register3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Welcome To The La Uda Padang"
-        android:textSize="20sp"
+        android:layout_marginBottom="12dp"
+        android:text="REGISTER"
+        android:textAlignment="center"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
+        android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/regist_frag"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="261dp"
+        android:layout_height="225dp"
+        app:layout_constraintBottom_toTopOf="@+id/title_register3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.579" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/the_la_uda_padang__1__removebg_preview" />
 
     <fragment
         android:id="@+id/regist_frag"
         class="com.example.mastermenurestopadang.RegisterFragment"
-        android:layout_width="match_parent"
+        android:layout_width="382dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="432dp"
+        android:layout_marginBottom="244dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.482"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

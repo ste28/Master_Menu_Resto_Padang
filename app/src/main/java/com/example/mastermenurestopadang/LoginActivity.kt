@@ -17,6 +17,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar?.setTitle("Welcome to The La'Uda Padang")
+
         if (intent.extras != null){
             val bundle = intent.extras
             if (bundle != null) {
@@ -27,6 +29,7 @@ class LoginActivity : AppCompatActivity() {
         loginFragment = supportFragmentManager.findFragmentById(R.id.login_frag) as LoginFragment
         loginFragment.onLoginListener = {username, password ->
             if (username == "admin" && password == "admin") {
+                Toast.makeText(this, "Welcome Admin!!", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 bundle.putParcelableArrayList("listUser", users)
                 val intent = Intent(this, MainActivity::class.java)
@@ -46,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
                     startActivity(intent)
                 }
                 else {
-                    Toast.makeText(this, "Login gagal!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Username atau Password anda salah!", Toast.LENGTH_SHORT).show()
                 }
             }
         }

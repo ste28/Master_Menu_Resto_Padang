@@ -10,19 +10,6 @@
     android:layout_marginRight="15dp"
     android:layout_marginBottom="15dp">
 
-    <TextView
-        android:id="@+id/title_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="REGISTER"
-        android:textAlignment="center"
-        android:textSize="34sp"
-        app:layout_constraintBottom_toTopOf="@+id/usernameRegist_et"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/usernameRegist_et"
         android:layout_width="match_parent"
@@ -31,11 +18,14 @@
         android:hint="Username"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/namaRegist_et"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title_register" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/namaRegist_et"
@@ -45,11 +35,12 @@
         android:hint="Nama"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/alamatRegist_et"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usernameRegist_et" />
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/alamatRegist_et"
@@ -59,11 +50,12 @@
         android:hint="Alamat"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/passwordRegist_et"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/namaRegist_et" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/passwordRegist_et"
@@ -73,21 +65,20 @@
         android:hint="Password"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        android:textColor="#6a6866"
+        android:textColorHint="#6a6866"
         app:layout_constraintBottom_toTopOf="@+id/do_regist_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alamatRegist_et" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/do_regist_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:backgroundTint="#03A9F4"
         android:text="REGISTER"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/passwordRegist_et" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -57,6 +57,7 @@ class AddMenuFragment : Fragment() {
                     val men = MenuPadang(id, nama, deskripsi, harga)
                     menuAdd.add(men)
                     menuAdapter.notifyDataSetChanged()
+                    Toast.makeText(view.context, "Sukses menambahkan $nama", Toast.LENGTH_SHORT).show()
                     refreshEt(idAddEt, namaMenuAddEt, deskripsiMenuAddEt, hargaMenuAddEt)
                 },
                 Response.ErrorListener {

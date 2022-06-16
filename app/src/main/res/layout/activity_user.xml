@@ -12,11 +12,13 @@
         android:name="com.example.mastermenurestopadang.ListMenuFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="#FFFFB7" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFB7"
         app:menu="@menu/user_bottom_navigation_menu" />
 </LinearLayout>

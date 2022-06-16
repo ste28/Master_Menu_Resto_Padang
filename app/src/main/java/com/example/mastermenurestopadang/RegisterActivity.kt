@@ -16,6 +16,8 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        supportActionBar?.setTitle("Welcome to The La'Uda Padang")
+
         if (intent.extras != null){
             val bundle = intent.extras
             if (bundle != null) {
@@ -35,6 +37,7 @@ class RegisterActivity : AppCompatActivity() {
             else {
                 val u = User(username, nama, alamat, password)
                 users.add(u)
+                Toast.makeText(this, "Register Sukses!!", Toast.LENGTH_SHORT).show()
                 val bundle = Bundle()
                 bundle.putParcelableArrayList("listUser", users)
                 val intent = Intent(this, LoginActivity::class.java)

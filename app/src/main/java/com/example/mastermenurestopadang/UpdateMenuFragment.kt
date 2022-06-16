@@ -113,6 +113,7 @@ class UpdateMenuFragment : Fragment() {
                     val men = MenuPadang(id, nama, deskripsi, harga)
                     menuDiupdate.add(men)
                     menuAdapter.notifyDataSetChanged()
+                    Toast.makeText(view.context, "Sukses mengubah $nama", Toast.LENGTH_SHORT).show()
                 },
                 Response.ErrorListener {
                     it.printStackTrace()

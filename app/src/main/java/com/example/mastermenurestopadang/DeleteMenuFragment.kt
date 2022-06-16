@@ -112,6 +112,7 @@ class DeleteMenuFragment : Fragment() {
                 val men = MenuPadang(id, nama, deskripsi, harga)
                 menuDiDelete.add(men)
                 menuAdapter.notifyDataSetChanged()
+                Toast.makeText(view.context, "Sukses menghapus $nama", Toast.LENGTH_SHORT).show()
             },
             Response.ErrorListener {
                 it.printStackTrace()
